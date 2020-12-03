@@ -19,7 +19,7 @@ public class First {
 
     //private WebDriver driver;
     private String SITE_URL_ONE = "http://platform.dev.techranch.ru/accounts/sign_in";
-    private String SITE_URL_TWO = "https://platform.plus-one.ru/";
+    private String SITE_URL_TWO = "https://platform.plus-one.ru/"; // !!! Используй только дев !!!
 
 //    @BeforeSuite
 //    public void start() {
