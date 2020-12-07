@@ -6,9 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +17,7 @@ public class PLAT_916 {
     private By buttonEnt = By.xpath("//div[@class=\"_1kFMl _1HmiM\"]//a");
     private By emailField = By.xpath("//input[@name=\"account[email]\"]");
     private By passwordField = By.xpath("//input[@id='account_password']");
-    private By buttonValid = By.xpath("//input[@type = 'submit' and @name = 'commit']");
+    private By buttonVoyti = By.xpath("//input[@type = 'submit' and @name = 'commit']");
     private String emailValid = "test@techranch.ru";
     private String passwordValid = "test1234";
     private By error = By.xpath("//div[@class=\"error-text\"]");
@@ -27,7 +25,7 @@ public class PLAT_916 {
     private By exit = By.xpath("//div[@class=\"slide\"]//li[4]");
 
 
-    @BeforeSuite
+    @BeforeMethod
     public void start() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -43,7 +41,7 @@ public class PLAT_916 {
     public void plat985() {
         driver.get(SITE_URL_TWO);
         driver.findElement(buttonEnt).click();
-        if (driver.findElement(emailField).isDisplayed() && driver.findElement(passwordField).isDisplayed()) ;
+        if (driver.findElement(emailField).isDisplayed() && driver.findElement(passwordField).isDisplayed());
     }
 
     @Test(description = "PLAT-928 Пользователь, на страницу авторизации успешно авторизуется вводя валидные данные. Система переходит на страницу профиля")
@@ -51,7 +49,7 @@ public class PLAT_916 {
         driver.get(SITE_URL_ONE);
         driver.findElement(emailField).sendKeys(emailValid);
         driver.findElement(passwordField).sendKeys(passwordValid);
-        driver.findElement(buttonValid).click();
+        driver.findElement(buttonVoyti).click();
         driver.findElement(profilButton).click();
         driver.findElement(exit).isDisplayed();
     }
@@ -61,24 +59,23 @@ public class PLAT_916 {
         driver.get(SITE_URL_ONE);
         driver.findElement(emailField).sendKeys("trololo@techranch.ru");
         driver.findElement(passwordField).sendKeys("trololo1234");
-        driver.findElement(buttonValid).click();
+        driver.findElement(buttonVoyti).click();
         driver.findElement(error).isDisplayed();
     }
 
-    @Test(description = "PLAT-931 Пользователь, на страницу авторизации не авторизуется вводя валидный email и не валидный пароль. Появляется сообщение под полем для ввода пароля: \"Неверный адрес email или пароль.\"\n" +
-            "\n")
+    @Test(description = "PLAT-931 Пользователь, на страницу авторизации не авторизуется вводя валидный email и не валидный пароль. Появляется сообщение под полем для ввода пароля: Неверный адрес email или пароль.")
     public void plat931() {
         driver.get(SITE_URL_ONE);
         driver.findElement(emailField).sendKeys(emailValid);
         driver.findElement(passwordField).sendKeys("trololo234");
-        driver.findElement(buttonValid).click();
+        driver.findElement(buttonVoyti).click();
         driver.findElement(error).isDisplayed();
     }
 
     @Test(description = "PLAT-951 Пользователь, на страницу авторизации не авторизуется оставляя поля Почта Пароль пустыми. Появляется сообщение под полем для ввода пароля: Неверный адрес email или пароль.")
     public void plat951() {
         driver.get(SITE_URL_ONE);
-        driver.findElement(buttonValid).click();
+        driver.findElement(buttonVoyti).click();
         driver.findElement(error).isDisplayed();
     }
 
@@ -86,7 +83,7 @@ public class PLAT_916 {
     public void plat953() {
         driver.get(SITE_URL_ONE);
         driver.findElement(emailField).sendKeys(emailValid);
-        driver.findElement(buttonValid).click();
+        driver.findElement(buttonVoyti).click();
         driver.findElement(error).isDisplayed();
     }
 }
