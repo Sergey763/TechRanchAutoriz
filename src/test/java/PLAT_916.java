@@ -21,16 +21,9 @@ public class PLAT_916 {
     private ProfilePage profil;
     private String SITE_URL_ONE = "http://platform.dev.techranch.ru/accounts/sign_in";
     private String SITE_URL_TWO = "http://platform.dev.techranch.ru/";
-    private By buttonEnt = By.xpath("//div[@class=\"_1kFMl _1HmiM\"]//a");
-    private By emailField = By.xpath("//input[@name=\"account[email]\"]");
-    private By passwordField = By.xpath("//input[@id='account_password']");
-    private By buttonVoyti = By.xpath("//input[@type = 'submit' and @name = 'commit']");
     private String emailValid = "test@techranch.ru";
     private String passwordValid = "test1234";
     private By error = By.xpath("//div[@class=\"error-text\"]");
-    private By profilButton = By.xpath("//div[@class=\"header_inner\"]//li[7]/a");
-    private By exit = By.xpath("//div[@class=\"slide\"]//li[4]");
-
 
     @BeforeMethod
     public void start() {
