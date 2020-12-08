@@ -11,8 +11,8 @@ public class ProfilePage {
         this.driver = driver;
     }
 
-    private By profilButton = By.xpath("//div[@class=\"header_inner\"]//li[7]/a");
-    private By exit = By.xpath("//div[@class=\"slide\"]//li[4]");
+//    private By profilButton = By.xpath("//div[@class=\"header_inner\"]//li[7]/a");
+//    private By exit = By.xpath("//div[@class=\"slide\"]//li[4]");
 
     public ProfilePage clickProfil() {
         driver.findElement(profilButton).click();

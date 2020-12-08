@@ -11,9 +11,9 @@ public class DomashnyaPage {
     public DomashnyaPage(WebDriver driver) {
         this.driver = driver;
     }
-    private By buttonVhod = By.xpath("//div[@class=\"_1kFMl _1HmiM\"]//a");
-    private By emailField = By.xpath("//input[@name=\"account[email]\"]");
-    private By passwordField = By.xpath("//input[@id='account_password']");
+//    private By buttonVhod = By.xpath("//div[@class=\"_1kFMl _1HmiM\"]//a");
+//    private By emailField = By.xpath("//input[@name=\"account[email]\"]");
+//    private By passwordField = By.xpath("//input[@id='account_password']");
 
     public void clickVhod() {
         driver.findElement(buttonVhod).click();

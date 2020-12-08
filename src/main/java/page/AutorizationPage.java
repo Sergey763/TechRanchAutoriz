@@ -11,15 +11,17 @@ public class AutorizationPage {
         this.driver = driver;
     }
 
-    private By emailField = By.xpath("//input[@name=\"account[email]\"]");
-    private By passwordField = By.xpath("//input[@id='account_password']");
-    private By buttonVoyti = By.xpath("//input[@type = 'submit' and @name = 'commit']");
-    private By error = By.xpath("//div[@class=\"error-text\"]");
+//    private By emailField = By.xpath("//input[@name=\"account[email]\"]");
+//    private By passwordField = By.xpath("//input[@id='account_password']");
+//    private By buttonVoyti = By.xpath("//input[@type = 'submit' and @name = 'commit']");
+//    private By error = By.xpath("//div[@class=\"error-text\"]");
 
     public ProfilePage clickVoyti() {
         driver.findElement(buttonVoyti).click();
         return new ProfilePage(driver);
     }
+
+
 
     public AutorizationPage typeEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
