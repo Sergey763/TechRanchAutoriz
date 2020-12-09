@@ -1,24 +1,18 @@
 package page;
 
+import factory.Button;
+import factory.Field;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ProfilePage {
 
-    private WebDriver driver;
+    public Button buttonProfil;
+    public Button buttonExit;
 
     public ProfilePage(WebDriver driver) {
-        this.driver = driver;
+        this.buttonProfil = new Button(driver, By.xpath("//div[@class=\"header_inner\"]//li[7]/a"));
+        this.buttonExit = new Button(driver, By.xpath("//div[@class=\"slide\"]//li[4]"));
     }
 
-//    private By profilButton = By.xpath("//div[@class=\"header_inner\"]//li[7]/a");
-//    private By exit = By.xpath("//div[@class=\"slide\"]//li[4]");
-
-    public ProfilePage clickProfil() {
-        driver.findElement(profilButton).click();
-        return new ProfilePage(driver);
-    }
-    public boolean exitDisplayed() {
-        return driver.findElement(exit).isDisplayed();
-    }
 }

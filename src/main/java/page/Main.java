@@ -18,7 +18,7 @@ public class Main {
         driver.get("http://platform.dev.techranch.ru/accounts/sign_in");
 
         AutorizationPage a = new AutorizationPage(driver);
-        a.autorization("test@techranch.ru", "test1234");
+        //a.autorization("test@techranch.ru", "test1234");
         driver.quit();
 
     }

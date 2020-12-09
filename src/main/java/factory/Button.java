@@ -2,29 +2,28 @@ package factory;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import page.AutorizationPage;
 
 public class Button {
 
     private WebDriver driver;
+    private By locator;
 
-    public Button(WebDriver driver) {
-        this.driver = driver;
+    public Button(WebDriver driver,By locator) {
+            this.driver = driver;
+            this.locator = locator;
     }
 
-    private By buttonVoyti = By.xpath("//input[@type = 'submit' and @name = 'commit']");
-    private By buttonVhod = By.xpath("//div[@class=\"_1kFMl _1HmiM\"]//a");
-    private By profilButton = By.xpath("//div[@class=\"header_inner\"]//li[7]/a");
-    private By exit = By.xpath("//div[@class=\"slide\"]//li[4]");
-
-    public void clickVoyti() {
-        driver.findElement(buttonVoyti).click();
+    public void click() {
+        driver.findElement(locator).click();
     }
 
-    public void clickVhod() {
-        driver.findElement(buttonVhod).click();
+    public boolean dispayed() {
+        return driver.findElement(locator).isDisplayed();
     }
 
-    public void clickProfil() {
-        driver.findElement(profilButton);
+    public String text() {
+        return driver.findElement(locator).getText();
     }
 }

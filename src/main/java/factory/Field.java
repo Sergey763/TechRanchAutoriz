@@ -7,20 +7,23 @@ import page.AutorizationPage;
 public class Field {
 
     private WebDriver driver;
+    private By locator;
 
-    public Field(WebDriver driver) {
+    public Field(WebDriver driver, By locator) {
         this.driver = driver;
+        this.locator = locator;
     }
 
-    private By emailField = By.xpath("//input[@name=\"account[email]\"]");
-    private By passwordField = By.xpath("//input[@id='account_password']");
-
-    public void typeEmail(String email) {
-        driver.findElement(emailField).sendKeys(email);
+    public void sendKeys(String text) {
+        driver.findElement(locator).sendKeys(text);
     }
 
-    public void typePassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+    public boolean dispayed() {
+        return driver.findElement(locator).isDisplayed();
+    }
+
+    public String text() {
+        return driver.findElement(locator).getText();
     }
 
 }
