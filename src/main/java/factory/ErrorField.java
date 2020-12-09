@@ -12,11 +12,11 @@ public class ErrorField {
         this.driver = driver;
         this.locator = locator;
     }
-    public boolean dispayed() {
+    public boolean isDispayed() {
        return driver.findElement(locator).isDisplayed();
     }
 
-    public String text() {
+    public String getText() {
         return driver.findElement(locator).getText();
     }
 }
