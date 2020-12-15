@@ -21,13 +21,13 @@ public class PLAT_916 {
     private DomashnyaPage vhod;
     private AutorizationPage auto;
     private ProfilePage profil;
-    private Button button;
-    private Field field;
+//    private Button button;
+//    private Field field;
     private String SITE_URL_ONE = "http://platform.dev.techranch.ru/accounts/sign_in";
     private String SITE_URL_TWO = "http://platform.dev.techranch.ru/";
     private String emailValid = "test@techranch.ru";
     private String passwordValid = "test1234";
-    private By error = By.xpath("//div[@class=\"error-text\"]");
+   // private By error = By.xpath("//div[@class=\"error-text\"]");
 
     @BeforeMethod
     public void setUp() {
@@ -59,7 +59,7 @@ public class PLAT_916 {
         auto.passwordField.sendKeys(passwordValid);
         auto.button.click();
         profil.buttonProfil.click();
-        Assert.assertTrue(profil.buttonExit.dispayed());
+        Assert.assertTrue(profil.buttonExit.isDispayed());
     }
 
     @Test(description = "PLAT-930 Пользователь, на страницу авторизации не может авторизоваться вводя не валидные данные")

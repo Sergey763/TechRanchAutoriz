@@ -18,6 +18,11 @@ public class Field {
         driver.findElement(locator).sendKeys(text);
     }
 
+    public void click() {
+        driver.findElement(locator).click();
+    }
+
+
     public boolean dispayed() {
         return driver.findElement(locator).isDisplayed();
     }
