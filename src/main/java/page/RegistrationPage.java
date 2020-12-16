@@ -1,6 +1,7 @@
 package page;
 
 import factory.Button;
+import factory.DropDown;
 import factory.ErrorField;
 import factory.Field;
 import net.bytebuddy.asm.Advice;
@@ -9,8 +10,8 @@ import org.openqa.selenium.WebDriver;
 
 public class RegistrationPage {
 
-    public Button typeUserField;
-    public Button smiField;
+    public DropDown typeUserDown;
+    public DropDown smiDropDown;
     public Field firstNameField;
     public Field lastNameField;
     public Field phoneNomberField;
@@ -26,8 +27,8 @@ public class RegistrationPage {
 
 
     public RegistrationPage(WebDriver driver) {
-        this.typeUserField = new Button(driver, By.xpath("//span[text() = \"Бизнес\"]"));
-        this.smiField = new Button(driver, By.xpath("//li[text() = \"СМИ\"]"));
+        this.typeUserDown = new DropDown(driver, By.xpath("//span[text() = \"Бизнес\"]"));
+        this.smiDropDown = new DropDown(driver, By.xpath("//li[text() = \"СМИ\"]"));
         this.moderationSendButton = new Button(driver, By.xpath("//div[@class=\"btn-holder\"]/input"));
         this.registrationButton = new Button(driver, By.xpath("//a[text() = \"Зарегистрироваться\"]"));
         this.firstNameField = new Field(driver, By.xpath("//div[@class = \"form-block form-block--first\"]/div[3]/div/input[@name = \"account[first_name]\"]"));
