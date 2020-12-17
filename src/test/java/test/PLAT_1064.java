@@ -5,6 +5,8 @@ import generator.Generator;
 import generator.PlatGenerator;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.checkerframework.checker.units.qual.A;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -43,6 +45,7 @@ public class PLAT_1064 {
         driver.quit();
     }
 
+
     @Test(description = "PLAT-1105 Гость в верхнем меню сайта при нажатии на кнопку зарегистрироваться, переходит на страницу регистрации")
     public void plat1105() {
         driver.get(AUTORIZ_URL_TWO);
@@ -60,7 +63,7 @@ public class PLAT_1064 {
     public void plat1107() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         Assert.assertEquals(registrationPage.smiField.getText(),"СМИ");
 
     }
@@ -69,13 +72,28 @@ public class PLAT_1064 {
     public void plat1108() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys(phoneValid);
         registrationPage.mailField.sendKeys(emailValid);
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
+        Assert.assertTrue(profilePage.welcome.isDispayed());
+
+    }
+
+    @Test(description = "PLAT-1111 Гость при вводе валидных данных на английском языке проходит регистрацию и переходит на страницу с профилем")
+    public void plat1111() {
+        driver.get(SIGN_UP_URL);
+        registrationPage.typeUserDown.click();
+        registrationPage.typeUserList.clickList(2);
+        registrationPage.firstNameField.sendKeys("English");
+        registrationPage.lastNameField.sendKeys("English");
+        registrationPage.phoneNumberField.sendKeys(generator.getPhone());
+        registrationPage.mailField.sendKeys(generator.getMail());
+        registrationPage.nameOrganizationField.sendKeys("English");
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(profilePage.welcome.isDispayed());
 
     }
@@ -84,13 +102,13 @@ public class PLAT_1064 {
     public void plat1137() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys("");
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys(generator.getPhone());
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.firstNameError.isDispayed());
     }
 
@@ -98,13 +116,13 @@ public class PLAT_1064 {
     public void plat1139() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys("");
         registrationPage.phoneNumberField.sendKeys(generator.getPhone());
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.lastNameError.isDispayed());
     }
 
@@ -113,13 +131,13 @@ public class PLAT_1064 {
     public void plat1140() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys("");
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.phoneError.isDispayed());
     }
 
@@ -127,13 +145,13 @@ public class PLAT_1064 {
     public void plat1141() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys(generator.getPhone());
         registrationPage.mailField.sendKeys("");
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.mailErrorNotNull.isDispayed());
     }
 
@@ -141,13 +159,13 @@ public class PLAT_1064 {
     public void plat1142() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys(generator.getPhone());
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.nameOrganizationError.isDispayed());
     }
 
@@ -171,13 +189,13 @@ public class PLAT_1064 {
     public void plat1145() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys(phoneValid);
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.phoneExist.isDispayed());
     }
 
@@ -185,13 +203,13 @@ public class PLAT_1064 {
     public void plat1146() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys(generator.getPhone());
         registrationPage.mailField.sendKeys(emailValid);
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.mailErrorExist.isDispayed());
     }
 
@@ -199,41 +217,33 @@ public class PLAT_1064 {
     public void plat1147() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.click();
-        registrationPage.smiDropDown.click();
+        registrationPage.typeUserList.clickList(2);
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.sendKeys(generator.getSurname());
         registrationPage.phoneNumberField.sendKeys(generator.getPhone());
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        registrationPage.registrationButton.click();
+        registrationPage.moderationSendButton.click();
         Assert.assertTrue(profilePage.welcome.isDispayed());
     }
 
-//    @Test(description = "PLAT-1148 Гость на странице регистрации с типом «СМИ» и заполнив поля валидными данными, поле «Почта» заполнить без домена. Появляется текст Адрес электронной почты должен содержать символ @. В адресе отсутсвует символ «@«»")
-//    public void plat1148() {
-//        driver.get(SIGN_UP_URL);
-//        registrationPage.typeUserDown.click();
-//        registrationPage.smiDropDown.click();
-//        registrationPage.firstNameField.sendKeys(generator.getName());
-//        registrationPage.lastNameField.sendKeys(generator.getSurname());
-//        registrationPage.phoneNumberField.sendKeys(generator.getPhone());
-//        registrationPage.mailField.sendKeys("test");
-//        registrationPage.nameOrganizationField.sendKeys("Testoshka");
-//        registrationPage.registrationButton.click();
-//        Assert.assertTrue(profilePage.welcome.isDispayed());
-//    }
-//
-//    @Test(description = "PLAT-1149 Гость на странице регистрации с типом «СМИ», заполнив поля валидными данными, в поле «Почта» написать часть адреса с «test@». Появляется текст «Введите часть адреса после символа «@». Адрес test@ неполный »")
-//    public void plat1149() {
-//        driver.get(SIGN_UP_URL);
-//        registrationPage.typeUserDown.click();
-//        registrationPage.smiDropDown.click();
-//        registrationPage.firstNameField.sendKeys(generator.getName());
-//        registrationPage.lastNameField.sendKeys(generator.getSurname());
-//        registrationPage.phoneNumberField.sendKeys(generator.getPhone());
-//        registrationPage.mailField.sendKeys("test@");
-//        registrationPage.nameOrganizationField.sendKeys("Testoshka");
-//        registrationPage.registrationButton.click();
-//        Assert.assertTrue(profilePage.welcome.isDispayed());
-//    }
+    @Test(description = "PLAT-1148 Гость на странице регистрации с типом «СМИ»,заполнив поле «Почта» без домена. Появляется текст Адрес электронной почты должен содержать символ @. В адресе test отсутствует символ @.»")
+    public void plat1148() {
+        driver.get(SIGN_UP_URL);
+        registrationPage.typeUserDown.click();
+        registrationPage.typeUserList.clickList(2);
+        registrationPage.mailField.sendKeys("test");
+        registrationPage.moderationSendButton.click();
+        Assert.assertEquals(registrationPage.mailField.getTextValidation(),registrationPage.noDomain);
+    }
+    @Test(description = "PLAT-1149 Гость на странице регистрации с типом «СМИ», написав в поле «Почта» часть адреса с «test@». Появляется текст Введите часть адреса после символа @. Адрес test+501test@ неполный.")
+    public void plat1149() {
+        driver.get(SIGN_UP_URL);
+        registrationPage.typeUserDown.click();
+        registrationPage.typeUserList.clickList(2);
+        registrationPage.mailField.sendKeys("test@");
+        registrationPage.moderationSendButton.click();
+        Assert.assertEquals(registrationPage.mailField.getTextValidation(),registrationPage.domain);
+    }
+
 }
