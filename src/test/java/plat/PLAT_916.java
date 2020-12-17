@@ -1,18 +1,13 @@
-import factory.Button;
-import factory.Field;
+package plat;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.A;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import page.AutorizationPage;
-import page.DomashnyaPage;
-import page.ProfilePage;
+import plat.page.AutorizationPage;
+import plat.page.DomashnyaPage;
+import plat.page.ProfilePage;
 
 import java.util.concurrent.TimeUnit;
 

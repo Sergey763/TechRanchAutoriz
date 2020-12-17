@@ -1,21 +1,16 @@
-package test;
+package plat;
 
-import factory.DropDown;
-import generator.Generator;
-import generator.PlatGenerator;
+import jcactus.generator.Generator;
+import jcactus.generator.PlatGenerator;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.A;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import page.ProfilePage;
-import page.RegistrationPage;
+import plat.page.ProfilePage;
+import plat.page.RegistrationPage;
 
 import java.util.concurrent.TimeUnit;
 
