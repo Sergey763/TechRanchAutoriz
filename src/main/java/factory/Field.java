@@ -31,4 +31,8 @@ public class Field {
         return driver.findElement(locator).getText();
     }
 
+    public String getTextValidation() {
+        return driver.findElement(locator).getAttribute("validationMessage");
+    }
+
 }

@@ -19,4 +19,5 @@ public class ErrorField {
     public String getText() {
         return driver.findElement(locator).getText();
     }
+
 }
