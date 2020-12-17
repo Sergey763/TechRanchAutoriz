@@ -1,8 +1,8 @@
-package page;
+package plat.page;
 
-import factory.Button;
-import factory.ErrorField;
-import factory.Field;
+import jcactus.factory.Button;
+import jcactus.factory.ErrorField;
+import jcactus.factory.Field;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
