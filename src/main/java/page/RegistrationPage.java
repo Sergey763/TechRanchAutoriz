@@ -29,7 +29,7 @@ public class RegistrationPage {
     public ErrorField mailErrorNotNull;
     public ErrorField nameOrganizationError;
     public String domain = "Введите часть адреса после символа \"@\". Адрес \"test@\" неполный.";
-    public String noDomein = "Адрес электронной почты должен содержать символ \"@\". В адресе \"test\" отсутствует символ \"@\".";
+    public String noDomain = "Адрес электронной почты должен содержать символ \"@\". В адресе \"test\" отсутствует символ \"@\".";
 
 
 
