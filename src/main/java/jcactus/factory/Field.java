@@ -22,7 +22,7 @@ public class Field {
     }
 
 
-    public boolean isDispayed() {
+    public boolean isDisplayed() {
         return driver.findElement(locator).isDisplayed();
     }
 

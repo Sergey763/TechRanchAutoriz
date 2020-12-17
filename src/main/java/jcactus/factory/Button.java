@@ -17,7 +17,7 @@ public class Button {
         driver.findElement(locator).click();
     }
 
-    public boolean isDispayed() {
+    public boolean isDisplayed() {
         return driver.findElement(locator).isDisplayed();
     }
 
