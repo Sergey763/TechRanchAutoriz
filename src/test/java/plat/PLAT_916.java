@@ -44,7 +44,7 @@ public class PLAT_916 {
     public void plat985() {
         driver.get(SITE_URL_TWO);
         vhod.button.click();
-        Assert.assertTrue(auto.emailfield.isDispayed() && auto.passwordField.isDispayed());
+        Assert.assertTrue(auto.emailfield.isDisplayed() && auto.passwordField.isDisplayed());
     }
 
     @Test(description = "PLAT-928 Пользователь, на страницу авторизации успешно авторизуется вводя валидные данные. Система переходит на страницу профиля")
@@ -54,7 +54,7 @@ public class PLAT_916 {
         auto.passwordField.sendKeys(passwordValid);
         auto.button.click();
         profil.buttonProfil.click();
-        Assert.assertTrue(profil.buttonExit.isDispayed());
+        Assert.assertTrue(profil.buttonExit.isDisplayed());
     }
 
     @Test(description = "PLAT-930 Пользователь, на страницу авторизации не может авторизоваться вводя не валидные данные")
@@ -63,7 +63,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys("trololo@techranch.ru");
         auto.passwordField.sendKeys("trololo1234");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 
     @Test(description = "PLAT-931 Пользователь, на страницу авторизации не авторизуется вводя валидный email и не валидный пароль. Появляется сообщение под полем для ввода пароля: Неверный адрес email или пароль.")
@@ -72,7 +72,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys(emailValid);
         auto.passwordField.sendKeys("trololo1234");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 
     //
@@ -82,7 +82,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys("");
         auto.passwordField.sendKeys("");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 
     @Test(description = "PLAT-953 Пользователь, на страницу авторизации не авторизуется введя валидную почту и оставив поле пароль пустым. Появляется сообщение под полем для ввода пароля: Неверный адрес email или пароль.")
@@ -91,7 +91,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys(emailValid);
         auto.passwordField.sendKeys("");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 }
 

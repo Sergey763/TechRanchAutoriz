@@ -74,7 +74,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(emailValid);
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(profilePage.welcome.isDispayed());
+        Assert.assertTrue(profilePage.welcome.isDisplayed());
 
     }
 
@@ -89,7 +89,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("English");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(profilePage.welcome.isDispayed());
+        Assert.assertTrue(profilePage.welcome.isDisplayed());
 
     }
 
@@ -104,7 +104,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(registrationPage.firstNameError.isDispayed());
+        Assert.assertTrue(registrationPage.firstNameError.isDisplayed());
     }
 
     @Test(description = "PLAT-1139 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Фамилия, видит сообщение под пустым полем Не может быть пустым")
@@ -118,7 +118,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(registrationPage.lastNameError.isDispayed());
+        Assert.assertTrue(registrationPage.lastNameError.isDisplayed());
     }
 
 
@@ -133,7 +133,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(registrationPage.phoneError.isDispayed());
+        Assert.assertTrue(registrationPage.phoneError.isDisplayed());
     }
 
     @Test(description = "PLAT-1141 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Почта, видит сообщение под пустым полем Не может быть пустым")
@@ -147,7 +147,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys("");
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(registrationPage.mailErrorNotNull.isDispayed());
+        Assert.assertTrue(registrationPage.mailErrorNotNull.isDisplayed());
     }
 
     @Test(description = "PLAT-1142 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Наименование организации, видит сообщение под пустым полем Не может быть пустым")
@@ -161,7 +161,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(registrationPage.nameOrganizationError.isDispayed());
+        Assert.assertTrue(registrationPage.nameOrganizationError.isDisplayed());
     }
 
     @Test(description = "PLAT-1143 На странице регистрации при нажатии на поле Телефон появляется маска для ввода номера с типом +7")
@@ -191,7 +191,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(registrationPage.phoneExist.isDispayed());
+        Assert.assertTrue(registrationPage.phoneExist.isDisplayed());
     }
 
     @Test(description = "PLAT-1146 Гость на странице регистрации с типом СМИ указав валидные данные, и «Почта» которая уже зарегистрирована в системе, видит текст красными буквами «уже существует»")
@@ -205,7 +205,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(emailValid);
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(registrationPage.mailErrorExist.isDispayed());
+        Assert.assertTrue(registrationPage.mailErrorExist.isDisplayed());
     }
 
     @Test(description = "PLAT-1147 Гость на странице регистрации с типом СМИ заполнив все поля валидными данными, а в поле «Наименование организации» вводит уже зарегистрированную в системе такую организацию, переходит на страницу профиля")
@@ -219,7 +219,7 @@ public class PLAT_1064 {
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
-        Assert.assertTrue(profilePage.welcome.isDispayed());
+        Assert.assertTrue(profilePage.welcome.isDisplayed());
     }
 
     @Test(description = "PLAT-1148 Гость на странице регистрации с типом «СМИ»,заполнив поле «Почта» без домена. Появляется текст Адрес электронной почты должен содержать символ @. В адресе test отсутствует символ @.»")
@@ -229,7 +229,7 @@ public class PLAT_1064 {
         registrationPage.typeUserList.clickList(2);
         registrationPage.mailField.sendKeys("test");
         registrationPage.moderationSendButton.click();
-        Assert.assertEquals(registrationPage.mailField.getTextValidation(),registrationPage.noDomain);
+        Assert.assertEquals(registrationPage.mailField.getTextHTML5Validation(),registrationPage.noDomain);
     }
     @Test(description = "PLAT-1149 Гость на странице регистрации с типом «СМИ», написав в поле «Почта» часть адреса с «test@». Появляется текст Введите часть адреса после символа @. Адрес test+501test@ неполный.")
     public void plat1149() {
@@ -238,7 +238,7 @@ public class PLAT_1064 {
         registrationPage.typeUserList.clickList(2);
         registrationPage.mailField.sendKeys("test@");
         registrationPage.moderationSendButton.click();
-        Assert.assertEquals(registrationPage.mailField.getTextValidation(),registrationPage.domain);
+        Assert.assertEquals(registrationPage.mailField.getTextHTML5Validation(),registrationPage.domain);
     }
 
 }
