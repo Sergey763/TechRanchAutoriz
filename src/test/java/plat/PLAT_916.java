@@ -6,14 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import plat.page.AutorizationPage;
-import plat.page.DomashnyaPage;
+import plat.page.HomePage;
 import plat.page.ProfilePage;
 
 import java.util.concurrent.TimeUnit;
 
 public class PLAT_916 {
     private WebDriver driver;
-    private DomashnyaPage vhod;
+    private HomePage vhod;
     private AutorizationPage auto;
     private ProfilePage profil;
 //    private Button button;
@@ -29,7 +29,7 @@ public class PLAT_916 {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        vhod = new DomashnyaPage(driver);
+        vhod = new HomePage(driver);
         auto = new AutorizationPage(driver);
         profil = new ProfilePage(driver);
 

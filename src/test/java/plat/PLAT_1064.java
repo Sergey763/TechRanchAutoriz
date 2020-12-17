@@ -1,7 +1,6 @@
 package plat;
 
 import jcactus.generator.Generator;
-import jcactus.generator.PlatGenerator;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import plat.generator.PlatGenerator;
 import plat.page.ProfilePage;
 import plat.page.RegistrationPage;
 
