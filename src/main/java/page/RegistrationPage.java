@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 public class RegistrationPage {
 
     public DropDown typeUserDown;
-    public DropDown smiDropDown;
+    public  DropDown typeUserList;
     public Field smiField;
     public Field firstNameField;
     public Field lastNameField;
@@ -32,9 +32,9 @@ public class RegistrationPage {
 
     public RegistrationPage(WebDriver driver) {
         this.typeUserDown = new DropDown(driver, By.xpath("//span[text() = \"Бизнес\"]"));
-        this.smiDropDown = new DropDown(driver, By.xpath("//li[text() = \"СМИ\"]"));
-        this.smiField = new Field(driver, By.xpath("//span[@class=\"select2-selection__rendered\"]"));
-        this.moderationSendButton = new Button(driver, By.xpath("//div[@class=\"btn-holder\"]/input"));
+        this.typeUserList = new DropDown(driver, By.xpath("//li[contains (@id, \"select2-organization_participant_kind\")]"));
+        this.smiField = new Field(driver, By.xpath("//span[@id=\"select2-organization_participant_kind-container\"]"));
+        this.moderationSendButton = new Button(driver, By.xpath("//input[@id = \"submit_registration_form\"]"));
         this.registrationButton = new Button(driver, By.xpath("//a[text() = \"Зарегистрироваться\"]"));
         this.firstNameField = new Field(driver, By.xpath("//input[@name=\"account[firs_name]\"]"));
         this.lastNameError = new ErrorField(driver, By.xpath("//div[@class = \"form-block form-block--first\"]/div[3]/div/div[text() = \"не может быть пустым\"]"));
