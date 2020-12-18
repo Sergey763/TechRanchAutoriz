@@ -26,6 +26,8 @@ public class PLAT_1064 {
     private String emailNoDomain = "test";
     private String emailExist = "test@techranch.ru";
     private String phoneExist = "9999307766";
+    public String attributePhone = "placeholder";
+
 
     @BeforeMethod
     public void setUp() {
@@ -59,8 +61,7 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1107 Гость на странице регистрации в поле Тип участника успешно устанавливает тип СМИ")
     public void plat1107() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
         Assert.assertEquals(registrationPage.smiField.getText(),"СМИ");
 
     }
@@ -68,8 +69,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1108 Гость при вводе валидных данных на странице регистрации успешно переходит на страницу с профилем")
     public void plat1108() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -88,8 +89,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1111 Гость при вводе валидных данных на английском языке проходит регистрацию и переходит на страницу с профилем")
     public void plat1111() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys("English");
         registrationPage.lastNameField.clear();
@@ -108,8 +109,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1137 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Имя, видит сообщение под пустым полем Не может быть пустым")
     public void plat1137() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys("");
         registrationPage.lastNameField.clear();
@@ -127,8 +128,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1139 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Фамилия, видит сообщение под пустым полем Не может быть пустым")
     public void plat1139() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -147,8 +148,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1140 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Телефон, видит сообщение под пустым полем Не может быть пустым")
     public void plat1140() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -166,8 +167,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1141 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Почта, видит сообщение под пустым полем Не может быть пустым")
     public void plat1141() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -185,8 +186,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1142 Гость при при нажатии кнопки Зарегистрироваться с валидными данными и пустым полем Наименование организации, видит сообщение под пустым полем Не может быть пустым")
     public void plat1142() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -201,27 +202,26 @@ public class PLAT_1064 {
         Assert.assertTrue(registrationPage.nameOrganizationError.isDisplayed());
     }
 
-//    @Test(description = "PLAT-1143 На странице регистрации при нажатии на поле Телефон появляется маска для ввода номера с типом +7")
-//    public void plat1143() {
-//        driver.get(SIGN_UP_URL);
-//        registrationPage.phoneField.click();
-//        Assert.assertEquals(registrationPage.phoneField.getText(), "+7");
-//    }
+    @Test(description = "PLAT-1143 На странице регистрации при нажатии на поле Телефон появляется маска для ввода номера с типом +7")
+    public void plat1143() {
+        driver.get(SIGN_UP_URL);
+        registrationPage.phoneField.click();
+        Assert.assertEquals(registrationPage.phoneField.getValue(attributePhone), "+7");
+    }
 
-//    @Test(description = "PLAT-1144 На странице регистрации в поле Телефон можно вводить только цифры")
-//    public void plat1144() {
-//        driver.get(SIGN_UP_URL);
-//        registrationPage.phoneField.sendKeys("АБВГ@&");
-//        registrationPage.mailField.sendKeys(generator.getMail());
-//        registrationPage.nameOrganizationField.sendKeys("Testoshka");
-//        Assert.assertEquals(registrationPage.phoneField.getText(), "+7");
-//    }
+    @Test(description = "PLAT-1144 На странице регистрации в поле Телефон можно вводить только цифры")
+    public void plat1144() {
+        driver.get(SIGN_UP_URL);
+         registrationPage.phoneField.clear();
+        registrationPage.phoneField.sendKeys("АБВГ@&");
+        Assert.assertEquals(registrationPage.phoneField.getValue(attributePhone), "+7");
+    }
 
     @Test(description = "PLAT-1145 Гость на странице регистрации с типом СМИ указав валидные данные, и «Телефон» который уже зарегистрирован в системе, видит текст красными буквами «уже существует»")
     public void plat1145() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -239,8 +239,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1146 Гость на странице регистрации с типом СМИ указав валидные данные, и «Почта» которая уже зарегистрирована в системе, видит текст красными буквами «уже существует»")
     public void plat1146() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -258,8 +258,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1147 Гость на странице регистрации с типом СМИ заполнив все поля валидными данными, а в поле «Наименование организации» вводит уже зарегистрированную в системе такую организацию, переходит на страницу профиля")
     public void plat1147() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
         registrationPage.lastNameField.clear();
@@ -277,8 +277,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1148 Гость на странице регистрации с типом «СМИ»,заполнив поле «Почта» без домена. Появляется текст Адрес электронной почты должен содержать символ @. В адресе test отсутствует символ @.»")
     public void plat1148() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.mailField.sendKeys(emailNoDomain);
         registrationPage.moderationSendButton.click();
@@ -287,8 +287,8 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1149 Гость на странице регистрации с типом «СМИ», написав в поле «Почта» часть адреса с «test@». Появляется текст Введите часть адреса после символа @. Адрес test+501test@ неполный.")
     public void plat1149() {
         driver.get(SIGN_UP_URL);
-        registrationPage.typeUserDown.click();
-        registrationPage.typeUserList.clickList(2);
+        registrationPage.typeUserDown.clickList(2);;
+
         registrationPage.firstNameField.clear();
         registrationPage.mailField.sendKeys(emailDomain);
         registrationPage.moderationSendButton.click();
