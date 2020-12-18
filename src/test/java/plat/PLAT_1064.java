@@ -168,7 +168,7 @@ public class PLAT_1064 {
     public void plat1143() {
         driver.get(SIGN_UP_URL);
         registrationPage.phoneNumberField.click();
-        Assert.assertEquals(registrationPage.phonePhorm.getText(), "+7");
+        Assert.assertEquals(registrationPage.phoneForm.getText(), "+7");
     }
 
     @Test(description = "PLAT-1144 На странице регистрации в поле Телефон можно вводить только цифры")
@@ -177,7 +177,7 @@ public class PLAT_1064 {
         registrationPage.phoneNumberField.sendKeys("АБВГ@&");
         registrationPage.mailField.sendKeys(generator.getMail());
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
-        Assert.assertEquals(registrationPage.phonePhorm.getText(), "+7");
+        Assert.assertEquals(registrationPage.phoneForm.getText(), "+7");
     }
 
     @Test(description = "PLAT-1145 Гость на странице регистрации с типом СМИ указав валидные данные, и «Телефон» который уже зарегистрирован в системе, видит текст красными буквами «уже существует»")

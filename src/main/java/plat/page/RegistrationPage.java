@@ -16,7 +16,7 @@ public class RegistrationPage {
     public Field lastNameField;
     public Field phoneNumberField;
     // с опечатками надо бороться
-    public Field phonePhorm;
+    public Field phoneForm;
     public Field mailField;
     public Field nameOrganizationField;
     public Button moderationSendButton;
@@ -53,7 +53,7 @@ public class RegistrationPage {
         this.phoneNumberField = new Field(driver, By.xpath("//input[@name=\"account[phone]\"]"));
         //таких ероров на странице можнет быть целых несколько, тогда драйвер упадет
         this.phoneExist = new ErrorField(driver,By.xpath("//div[@class=\"error-text\"]"));
-        this.phonePhorm = new Field(driver, By.xpath("//input[@name=\"account[phone]\"]"));
+        this.phoneForm = new Field(driver, By.xpath("//input[@name=\"account[phone]\"]"));
         // и вообще, у тебя один элемент, просто он отображает разный текст, в этом случае надо проверять выводимый текст а не плодить элементы в pom
         this.phoneError = new ErrorField(driver, By.xpath("//div[@class = \"form-block form-block--first\"]/div[5]/div/div[text() = \"не может быть пустым\"]"));
         // к мылу также последний коммент относится
