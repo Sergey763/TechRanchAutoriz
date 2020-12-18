@@ -42,8 +42,8 @@ public class Field {
 
     // ToDo getText обычно не работает в полях, значение поля input указывается в параметре value. Нужно возвращать его значение
 
-     public String getValue() {
-         return driver.findElement(locator).getAttribute("value");
+     public String getValue(String attribute) {
+         return driver.findElement(locator).getAttribute(attribute);
      }
 
 }
