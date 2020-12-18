@@ -9,25 +9,28 @@ import java.util.List;
 public class DropDown {
 
     private WebDriver driver;
-    private By locator;
+    private By locatorUserDown;
+    private By locatorList;
 
-    public DropDown(WebDriver driver, By locator) {
+    public DropDown(WebDriver driver, By locatorUserDown, By locatorList) {
         this.driver = driver;
-        this.locator = locator;
+        this.locatorUserDown = locatorUserDown;
+        this.locatorList = locatorList;
     }
 
-    public void click() {
-        driver.findElement(locator).click();
-    }
+//    public void click() {
+//        driver.findElement(locator).click();
+//    }
 
     public void clickList(int number) {
-        List<WebElement> checkDrops = driver.findElements(locator);
+        driver.findElement(locatorUserDown).click();
+        List<WebElement> checkDrops = driver.findElements(locatorList);
         checkDrops.get(number).click();
 
     }
 
     public String getText() {
-        return driver.findElement(locator).getText();
+        return driver.findElement(locatorUserDown).getText();
     }
 
 
