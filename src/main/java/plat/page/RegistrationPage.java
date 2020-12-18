@@ -15,7 +15,7 @@ public class RegistrationPage {
     public Field firstNameField;
     public Field lastNameField;
     // с опечатками надо бороться
-    public Field phoneForm;
+    public Field phoneField;
     public Field mailField;
     public Field nameOrganizationField;
     public Button moderationSendButton;
@@ -36,8 +36,8 @@ public class RegistrationPage {
 
     public RegistrationPage(WebDriver driver) {
         // Не согласен с реализацией, для одного элемента ты используешь две переменные, зачем? Что не позволяет в конструктор отправить два локатора?
-        this.typeUserDown = new DropDown(driver, By.xpath("//span[text() = \"Бизнес\"]"));
-        this.typeUserList = new DropDown(driver, By.xpath("//li[contains (@id, \"select2-organization_participant_kind\")]"));
+        this.typeUserDown = new DropDown(driver, By.xpath("//span[text() = \"Бизнес\"]"), By.xpath("//li[contains (@id, \"select2-organization_participant_kind\")]"));
+        //this.typeUserList = new DropDown(driver, By.xpath("//li[contains (@id, \"select2-organization_participant_kind\")]"));
         // Это зачем то еще используется в тестах //а как ты видишь реализацию?
         this.smiField = new Field(driver, By.xpath("//span[@id=\"select2-organization_participant_kind-container\"]"));
         this.moderationSendButton = new Button(driver, By.xpath("//input[@id = \"submit_registration_form\"]"));
@@ -46,8 +46,9 @@ public class RegistrationPage {
         this.firstNameField = new Field(driver, By.xpath("//input[@name=\"account[first_name]\"]"));
         this.firstNameError = new ErrorField(driver,By.xpath("//input[@id = 'account_first_name']/following-sibling::div[contains(text(), 'не может быть пустым')]"));
         this.lastNameField = new Field(driver, By.xpath("//input[@name=\"account[last_name]\"]"));
-        this.lastNameError = new ErrorField(driver, By.xpath("//input[@id = 'account_last_name']/following-sibling::div[contains(text(), 'не может быть пустым')]"));
-        this.phoneForm = new Field(driver, By.xpath("//input[@name=\"account[phone]\"]"));
+        //корявый xPath, но работает
+        this.lastNameError = new ErrorField(driver, By.xpath("//input[@id=\"organization_name_ru\"]/following-sibling::div[contains(text(), 'не может быть пустым')][1]"));
+        this.phoneField = new Field(driver, By.xpath("//input[@name=\"account[phone]\"]"));
         //таких ероров на странице можнет быть целых несколько, тогда драйвер упадет
         this.phoneExist = new ErrorField(driver,By.xpath("//input[@id = 'account_phone']/following-sibling::div[contains(text(), 'уже существует')]"));
         // и вообще, у тебя один элемент, просто он отображает разный текст, в этом случае надо проверять выводимый текст а не плодить элементы в pom
