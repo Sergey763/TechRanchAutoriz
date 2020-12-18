@@ -46,7 +46,7 @@ public class RegistrationPage {
         this.firstNameError = new ErrorField(driver,By.xpath("//input[@id = 'account_first_name']/following-sibling::div[contains(text(), 'не может быть пустым')]"));
         this.lastNameField = new Field(driver, By.xpath("//input[@name=\"account[last_name]\"]"));
         //корявый xPath, но работает
-        this.lastNameError = new ErrorField(driver, By.xpath("//input[@id=\"organization_name_ru\"]/following-sibling::div[contains(text(), 'не может быть пустым')][1]"));
+        this.lastNameError = new ErrorField(driver, By.xpath("//input[@id=\"account_last_name\"]/following-sibling::div[contains(text(), 'не может быть пустым')]"));
         this.phoneField = new Field(driver, By.xpath("//input[@name=\"account[phone]\"]"));
         //таких ероров на странице можнет быть целых несколько, тогда драйвер упадет
         this.phoneExist = new ErrorField(driver,By.xpath("//input[@id = 'account_phone']/following-sibling::div[contains(text(), 'уже существует')]"));
