@@ -16,8 +16,8 @@ public class Field {
 
     // ToDo Хорошей практикой считается очистить поле, прежде чем его заполнять
     public void clear() {
+        driver.findElement(locator).clear();
     }
-
 
     public void sendKeys(String text) {
         driver.findElement(locator).sendKeys(text);
@@ -42,7 +42,8 @@ public class Field {
 
     // ToDo getText обычно не работает в полях, значение поля input указывается в параметре value. Нужно возвращать его значение
 
-    // public String getValue() {
-    // }
+     public String getValue() {
+         return driver.findElement(locator).getAttribute("value");
+     }
 
 }
