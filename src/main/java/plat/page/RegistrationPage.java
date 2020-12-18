@@ -33,7 +33,6 @@ public class RegistrationPage {
     public String noDomain = "Адрес электронной почты должен содержать символ \"@\". В адресе \"test\" отсутствует символ \"@\".";
 
 
-
     public RegistrationPage(WebDriver driver) {
         // Не согласен с реализацией, для одного элемента ты используешь две переменные, зачем? Что не позволяет в конструктор отправить два локатора?
         this.typeUserDown = new DropDown(driver, By.xpath("//span[text() = \"Бизнес\"]"), By.xpath("//li[contains (@id, \"select2-organization_participant_kind\")]"));
