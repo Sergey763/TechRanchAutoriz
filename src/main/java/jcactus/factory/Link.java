@@ -26,7 +26,9 @@ public class Link {
     }
 // ToDo метод должен возвращать значение указанного атрибута
 
-//    public String getAttribute(String attribute) {
-//    }
+    public String getAttribute(String attribute) {
+
+        return driver.findElement(locator).getAttribute(attribute);
+    }
 
 }
