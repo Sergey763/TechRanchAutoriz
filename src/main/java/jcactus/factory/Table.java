@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
@@ -25,22 +26,36 @@ public class Table {
      * getRows возвращает список сторок в виде WebElement
      * @return
      */
-//    public List<WebElement> getRows() {
-//    }
+    public List<WebElement> getRows() {
+        List<WebElement> rows = table.findElements(By.xpath(".//tr"));
+        rows.remove(0);
+        return rows;
+    }
 
     /**
      * getHeadings возвращает список заголовков столбцов в виде WebElement
      * @return
      */
-//    public List<WebElement> getHeadings() {
-//    }
+    public List<WebElement> getHeadings() {
+        WebElement headingsRow = table.findElement(By.xpath(".//tr[1]"));
+        List<WebElement> headingColumns = headingsRow.findElements(By.xpath(".//th"));
+        return headingColumns;
+    }
 
     /**
      * getHeadingsWithRows возвращает список строк со списком столбцов в виде WebElement
      * @return
      */
-//    public List<List<WebElement>> getRowsWithColumns() {
-//    }
+    public List<List<WebElement>> getRowsWithColumns() {
+        List<WebElement> rows = getRows();
+        List<List<WebElement>> rowsWithColumns = new ArrayList<List<WebElement>>();
+        for(WebElement row : rows) {
+            List<WebElement> rowWithColumns = row.findElements(By.xpath(".//td"));
+            rowsWithColumns.add(rowWithColumns);
+        }
+        return rowsWithColumns;
+
+    }
 
 //    public List<Map<String, WebElement>> getRowsWithColumnsByHeadings(){
 //    }
