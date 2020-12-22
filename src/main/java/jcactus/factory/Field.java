@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Field {
 
@@ -16,14 +18,17 @@ public class Field {
         this.locator = locator;
     }
 
-    // ToDo Хорошей практикой считается очистить поле, прежде чем его заполнять
     public void clear() {
         driver.findElement(locator).clear();
     }
 
     public void sendKeys(String text) {
         clear();
-        driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
+        Pattern p = Pattern.compile("[0-9]+");
+        Matcher m = p.matcher(text);
+        if (m.matches() & text.length()==10) {
+            driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
+        }
         driver.findElement(locator).sendKeys(text);
 
     }
