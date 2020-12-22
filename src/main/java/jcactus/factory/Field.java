@@ -4,6 +4,8 @@ import jcactus.Message;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class Field {
 
     private WebDriver driver;
@@ -20,7 +22,10 @@ public class Field {
     }
 
     public void sendKeys(String text) {
+        clear();
+        driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
         driver.findElement(locator).sendKeys(text);
+
     }
 
     public void click() {
