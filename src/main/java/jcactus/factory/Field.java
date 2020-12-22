@@ -24,9 +24,9 @@ public class Field {
 
     public void sendKeys(String text) {
         clear();
-        Pattern p = Pattern.compile("[0-9]+");
-        Matcher m = p.matcher(text);
-        if (m.matches() & text.length()==10) {
+        Pattern p = Pattern.compile("[0-9]+"); //создать объект Pattern с помощью статического метода compile(), который позволяет установить шаблон:
+        Matcher m = p.matcher(text); //принимает строку где надо проводить поиск
+        if (m.matches() & text.length()==10) { //matches() возвращает true, если вся строка совпадает с шаблоном
             driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
         }
         driver.findElement(locator).sendKeys(text);
