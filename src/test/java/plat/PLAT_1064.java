@@ -70,16 +70,10 @@ public class PLAT_1064 {
     public void plat1108() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(profilePage.welcome.isDisplayed());
@@ -90,16 +84,10 @@ public class PLAT_1064 {
     public void plat1111() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys("English");
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys("English");
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("English");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(profilePage.welcome.isDisplayed());
@@ -110,16 +98,10 @@ public class PLAT_1064 {
     public void plat1137() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys("");
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.firstNameError.isDisplayed());
@@ -129,16 +111,10 @@ public class PLAT_1064 {
     public void plat1139() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys("");
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.lastNameError.isDisplayed());
@@ -149,16 +125,10 @@ public class PLAT_1064 {
     public void plat1140() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys("");
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.phoneError.isDisplayed());
@@ -168,16 +138,10 @@ public class PLAT_1064 {
     public void plat1141() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys("");
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.mailErrorNotNull.isDisplayed());
@@ -187,16 +151,10 @@ public class PLAT_1064 {
     public void plat1142() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.nameOrganizationError.isDisplayed());
@@ -212,7 +170,6 @@ public class PLAT_1064 {
     @Test(description = "PLAT-1144 На странице регистрации в поле Телефон можно вводить только цифры")
     public void plat1144() {
         driver.get(SIGN_UP_URL);
-         registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys("АБВГ@&");
         Assert.assertEquals(registrationPage.phoneField.getValue(attributePhone), "+7");
     }
@@ -221,16 +178,10 @@ public class PLAT_1064 {
     public void plat1145() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(phoneExist);
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.phoneExist.isDisplayed());
@@ -240,16 +191,10 @@ public class PLAT_1064 {
     public void plat1146() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(emailExist);
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(registrationPage.mailErrorExist.isDisplayed());
@@ -259,16 +204,10 @@ public class PLAT_1064 {
     public void plat1147() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.firstNameField.sendKeys(generator.getName());
-        registrationPage.lastNameField.clear();
         registrationPage.lastNameField.sendKeys(generator.getSurname());
-        registrationPage.phoneField.clear();
         registrationPage.phoneField.sendKeys(generator.getPhone());
-        registrationPage.mailField.clear();
         registrationPage.mailField.sendKeys(generator.getMail());
-        registrationPage.nameOrganizationField.clear();
         registrationPage.nameOrganizationField.sendKeys("Testoshka");
         registrationPage.moderationSendButton.click();
         Assert.assertTrue(profilePage.welcome.isDisplayed());
@@ -278,8 +217,6 @@ public class PLAT_1064 {
     public void plat1148() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.mailField.sendKeys(emailNoDomain);
         registrationPage.moderationSendButton.click();
         Assert.assertEquals(registrationPage.mailField.getTextHTML5Validation(),registrationPage.noDomain);
@@ -288,8 +225,6 @@ public class PLAT_1064 {
     public void plat1149() {
         driver.get(SIGN_UP_URL);
         registrationPage.typeUserDown.clickList(2);;
-
-        registrationPage.firstNameField.clear();
         registrationPage.mailField.sendKeys(emailDomain);
         registrationPage.moderationSendButton.click();
         Assert.assertEquals(registrationPage.mailField.getTextHTML5Validation(),registrationPage.domain);
