@@ -1,40 +1,35 @@
-import factory.Button;
-import factory.Field;
+package plat;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.A;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import page.AutorizationPage;
-import page.DomashnyaPage;
-import page.ProfilePage;
+import plat.page.AutorizationPage;
+import plat.page.HomePage;
+import plat.page.ProfilePage;
 
 import java.util.concurrent.TimeUnit;
 
 public class PLAT_916 {
     private WebDriver driver;
-    private DomashnyaPage vhod;
+    private HomePage vhod;
     private AutorizationPage auto;
     private ProfilePage profil;
-    private Button button;
-    private Field field;
+//    private Button button;
+//    private Field field;
     private String SITE_URL_ONE = "http://platform.dev.techranch.ru/accounts/sign_in";
     private String SITE_URL_TWO = "http://platform.dev.techranch.ru/";
     private String emailValid = "test@techranch.ru";
     private String passwordValid = "test1234";
-    private By error = By.xpath("//div[@class=\"error-text\"]");
+   // private By error = By.xpath("//div[@class=\"error-text\"]");
 
     @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        vhod = new DomashnyaPage(driver);
+        vhod = new HomePage(driver);
         auto = new AutorizationPage(driver);
         profil = new ProfilePage(driver);
 
@@ -49,7 +44,7 @@ public class PLAT_916 {
     public void plat985() {
         driver.get(SITE_URL_TWO);
         vhod.button.click();
-        Assert.assertTrue(auto.emailfield.isDispayed() && auto.passwordField.isDispayed());
+        Assert.assertTrue(auto.emailfield.isDisplayed() && auto.passwordField.isDisplayed());
     }
 
     @Test(description = "PLAT-928 Пользователь, на страницу авторизации успешно авторизуется вводя валидные данные. Система переходит на страницу профиля")
@@ -59,7 +54,7 @@ public class PLAT_916 {
         auto.passwordField.sendKeys(passwordValid);
         auto.button.click();
         profil.buttonProfil.click();
-        Assert.assertTrue(profil.buttonExit.isDispayed());
+        Assert.assertTrue(profil.buttonExit.isDisplayed());
     }
 
     @Test(description = "PLAT-930 Пользователь, на страницу авторизации не может авторизоваться вводя не валидные данные")
@@ -68,7 +63,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys("trololo@techranch.ru");
         auto.passwordField.sendKeys("trololo1234");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 
     @Test(description = "PLAT-931 Пользователь, на страницу авторизации не авторизуется вводя валидный email и не валидный пароль. Появляется сообщение под полем для ввода пароля: Неверный адрес email или пароль.")
@@ -77,7 +72,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys(emailValid);
         auto.passwordField.sendKeys("trololo1234");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 
     //
@@ -87,7 +82,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys("");
         auto.passwordField.sendKeys("");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 
     @Test(description = "PLAT-953 Пользователь, на страницу авторизации не авторизуется введя валидную почту и оставив поле пароль пустым. Появляется сообщение под полем для ввода пароля: Неверный адрес email или пароль.")
@@ -96,7 +91,7 @@ public class PLAT_916 {
         auto.emailfield.sendKeys(emailValid);
         auto.passwordField.sendKeys("");
         auto.button.click();
-        Assert.assertTrue(auto.error.isDispayed());
+        Assert.assertTrue(auto.error.isDisplayed());
     }
 }
 

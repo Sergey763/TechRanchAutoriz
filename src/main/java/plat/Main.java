@@ -1,8 +1,9 @@
-package page;
+package plat;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import plat.page.AutorizationPage;
 
 import java.util.concurrent.TimeUnit;
 

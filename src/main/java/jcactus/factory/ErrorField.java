@@ -1,4 +1,4 @@
-package factory;
+package jcactus.factory;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,11 +12,12 @@ public class ErrorField {
         this.driver = driver;
         this.locator = locator;
     }
-    public boolean isDispayed() {
+    public boolean isDisplayed() {
        return driver.findElement(locator).isDisplayed();
     }
 
     public String getText() {
         return driver.findElement(locator).getText();
     }
+
 }

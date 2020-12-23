@@ -1,9 +1,7 @@
-package factory;
+package jcactus.factory;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import page.AutorizationPage;
 
 public class Button {
 
@@ -19,7 +17,7 @@ public class Button {
         driver.findElement(locator).click();
     }
 
-    public boolean isDispayed() {
+    public boolean isDisplayed() {
         return driver.findElement(locator).isDisplayed();
     }
 
