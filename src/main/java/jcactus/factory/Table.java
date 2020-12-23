@@ -12,7 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Table {
 
@@ -27,7 +29,7 @@ public class Table {
      * @return
      */
     public List<WebElement> getRows() {
-        List<WebElement> rows = table.findElements(By.xpath(".//tr"));
+        List<WebElement> rows = table.findElements(By.xpath(".//tr")); //возвращает все строки
         rows.remove(0);
         return rows;
     }
@@ -57,8 +59,24 @@ public class Table {
 
     }
 
-//    public List<Map<String, WebElement>> getRowsWithColumnsByHeadings(){
-//    }
+    public List<Map<String, WebElement>> getRowsWithColumnsByHeadings(){
+        List<List<WebElement>> rowsWithColumns = getRowsWithColumns();
+        List<Map<String, WebElement>> rowsWithColumnsByHeadings = new ArrayList<Map<String, WebElement>>();
+        Map<String, WebElement> rowByHeadings;
+        List<WebElement> headingColumns = getHeadings();
+
+        for (List<WebElement> row : rowsWithColumns){
+            rowByHeadings = new HashMap<String, WebElement>();
+            for (int i = 0; i < headingColumns.size(); i++){
+                String heading = headingColumns.get(i).getText();
+                WebElement cell = row.get(i);
+                rowByHeadings.put(heading, cell);
+            }
+            rowsWithColumnsByHeadings.add(rowByHeadings);
+        }
+        return rowsWithColumnsByHeadings;
+
+    }
 
     /**
      * Возвращает ячейку как WebElement из столбца returningColumn из той строки, у которой есть значение
