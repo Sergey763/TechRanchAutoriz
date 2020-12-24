@@ -49,7 +49,7 @@ public class Table {
      * @return
      */
     public List<List<WebElement>> getRowsWithColumns() {
-        List<WebElement> rows = getRows();
+        List<WebElement> rows = getRows();//список вебэлементов
         List<List<WebElement>> rowsWithColumns = new ArrayList<List<WebElement>>();
         for(WebElement row : rows) {
             List<WebElement> rowWithColumns = row.findElements(By.xpath(".//td"));
@@ -60,16 +60,16 @@ public class Table {
     }
 
     public List<Map<String, WebElement>> getRowsWithColumnsByHeadings(){
-        List<List<WebElement>> rowsWithColumns = getRowsWithColumns();
+        List<List<WebElement>> rowsWithColumns = getRowsWithColumns(); //записали список строк со списком столбцов
         List<Map<String, WebElement>> rowsWithColumnsByHeadings = new ArrayList<Map<String, WebElement>>();
-        Map<String, WebElement> rowByHeadings;
-        List<WebElement> headingColumns = getHeadings();
+        Map<String, WebElement> rowByHeadings; //одна строка разбитая на столбцы по заголовки
+        List<WebElement> headingColumns = getHeadings(); // список заголовков
 
         for (List<WebElement> row : rowsWithColumns){
             rowByHeadings = new HashMap<String, WebElement>();
             for (int i = 0; i < headingColumns.size(); i++){
-                String heading = headingColumns.get(i).getText();
-                WebElement cell = row.get(i);
+                String heading = headingColumns.get(i).getText(); //каждый список заголовков (3) например первый заголовок и
+                WebElement cell = row.get(i);//первая ячейка в строке
                 rowByHeadings.put(heading, cell);
             }
             rowsWithColumnsByHeadings.add(rowByHeadings);
@@ -86,8 +86,19 @@ public class Table {
      * @param returningColumn
      * @return
      */
-//    public WebElement getCell(String searchValue, int searchColumn, int returningColumn) {
-//    }
+    public WebElement getCell(String searchValue, int searchColumn, int returningColumn) {
+        WebElement cell = null;
+        List<List<WebElement>> rowsWithColumns = getRowsWithColumns();
+        for (List<WebElement> rowWithColumns : rowsWithColumns) {
+            if(rowWithColumns.get(searchColumn).getText().equals(searchValue)){
+
+                cell = rowWithColumns.get(returningColumn);
+                break;
+            }
+        }
+        return cell;
+
+    }
 
     /**
      * Возвращает true, если значение searchValue найдена в столбце searchColumn
@@ -95,7 +106,17 @@ public class Table {
      * @param searchColumn
      * @return
      */
-//    public boolean searchCell(String searchValue, int searchColumn) {
-//    }
+    public boolean searchCell(String searchValue, int searchColumn) {
+        List<List<WebElement>> rowsWithColumns = getRowsWithColumns();
+        boolean result = false;
+        for (List<WebElement> rowWithColumns : rowsWithColumns) {
+            if(rowWithColumns.get(searchColumn).getText().equals(searchValue)) {
+                result =  true;
+                break;
+            }
+        }
+        return result;
+
+    }
 
 }

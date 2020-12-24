@@ -25,9 +25,10 @@ public class Main {
         Table table = new Table(driver,By.xpath("//table[@id=\"customers\"]"));
 
         System.out.println("Rows number is: " + table.getRows().size());
-        String result = "";
-        System.out.println(table.getRows().get(3).getText());
-//        for(WebElement rows : table.getRows()){
+        List<WebElement> rows = table.getRows();
+        System.out.println(table.searchCell("Germany",1));
+        driver.quit();
+        //        for(WebElement rows : table.getRows()){
 //            result = rows.getText();
 //            System.out.println(result);
 //            System.out.println(rows);
