@@ -18,6 +18,7 @@ public class RegistrationPage {
     public Field phoneField;
     public Field mailField;
     public Field nameOrganizationField;
+    public Field textRegistration;
     public Button moderationSendButton;
     public Button registrationButton;
     public ErrorField firstNameError;
@@ -48,6 +49,7 @@ public class RegistrationPage {
         //корявый xPath, но работает
         this.lastNameError = new ErrorField(driver, By.xpath("//input[@id=\"account_last_name\"]/following-sibling::div[contains(text(), 'не может быть пустым')]"));
         this.phoneField = new Field(driver, By.xpath("//input[@name=\"account[phone]\"]"));
+        this.textRegistration = new Field(driver, By.xpath("//h1[text()=\"Регистрация\"]"));
         //таких ероров на странице можнет быть целых несколько, тогда драйвер упадет
         this.phoneExist = new ErrorField(driver,By.xpath("//input[@id = 'account_phone']/following-sibling::div[contains(text(), 'уже существует')]"));
         // и вообще, у тебя один элемент, просто он отображает разный текст, в этом случае надо проверять выводимый текст а не плодить элементы в pom
