@@ -21,7 +21,12 @@ public class Button {
         return driver.findElement(locator).isDisplayed();
     }
 
+    public boolean isEnabled() {
+        return driver.findElement(locator).isEnabled();
+    }
+
     public String getText() {
         return driver.findElement(locator).getText();
     }
+
 }
