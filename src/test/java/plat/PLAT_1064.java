@@ -253,7 +253,7 @@ public class PLAT_1064 {
     }
 
     @Test(description = "PLAT-1148 Гость на странице регистрации с типом «СМИ»,заполнив поле «Почта» без домена. Появляется текст Адрес электронной почты должен содержать символ @. В адресе test отсутствует символ @.»")
-    public void plat1148() {
+        public void plat1148() {
         //Шаги
         driver.get(new PropertyLoader().getProperty("platform.signUp"));
         registrationPage.typeUserDown.clickList(2);;
@@ -274,5 +274,6 @@ public class PLAT_1064 {
         //Проверка
         Assert.assertEquals(registrationPage.mailField.getTextHTML5Validation(),registrationPage.domain);
     }
+
 
 }
