@@ -11,9 +11,18 @@ public class Generator {
             "Иван", "Кайо", "Леонид", "Михаил", "Николай", "Олег", "Петр", "Роман", "Сергей", "Тимофей", "Увайс",
             "Фазиль", "Хабиб", "Цветимир", "Чеслав", "Шавкат", "Щеслав", "Эдуард", "Юлий", "Яков");
 
+    private final List<String> maleEngNames = Arrays.asList("Anton", "Boris", "Vladimir", "Gleb", "Dmitry", "Evgeniy", "Jab","Zahar",
+            "Ivan", "Kayo", "Leonid", "Michail", "Nicolay", "Oleg", "Petr", "Roman", "Sergey", "Timofey", "Uvays",
+            "Fazil", "Habib", "Cvetomir", "Cheslav", "Chavkcat", "Zlatan", "Eduard", "July", "Yakov");
+
     private final List<String> femaleNames = Arrays.asList("Алина", "Богдана", "Влада", "Галина", "Динара", "Евгения", "Жозефина",
             "Зарине", "Ивана", "Карина", "Людмила", "Милена", "Нина", "Ольга", "Полина", "Роза", "Светлана", "Томара",
             "Ульяна", "Фатима", "Хельга", "Циля", "Чита", "Шейла", "Эмилия", "Юлия", "Яна");
+
+    private final List<String> femaleEngNames = Arrays.asList("Alina", "Bogdana", "Vlada", "Galina", "Dinara", "Evgenia", "Josephina",
+            "Zarine", "Ivana", "Karina", "Ludmila", "Milena", "Nina", "Olga", "Polina", "Roza", "Svetlana", "Tomara",
+            "Ulana", "Fatima", "Helga", "Cilya", "Chita", "Cheyla", "Emilia", "Yulia", "Yana", "Shahla");
+
 
 
     public String getName() {
